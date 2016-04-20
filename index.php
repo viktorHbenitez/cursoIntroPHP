@@ -63,7 +63,7 @@
 	$arreglo_reverse = array_reverse($diaSemana);
 	echo join(' , ',$arreglo_reverse);
 
-
+	
 
 
 
