@@ -5,7 +5,11 @@
 	<title>Vista</title>
 </head>
 <body>
-	<h1>Include - Require</h1>
-	<h2>El resultado de la suma es: <?php echo suma(10,5); ?></h2>
+	<div class="container">
+		<h1>Uso de Include y Require</h1>
+		<!-- mostamos el resultado de la funcion suma() separando la logica/vista-->
+		<h3>El resultado de la suma es: <?php echo suma(5,10); ?></h3>
+
+	</div>
 </body>
 </html>
