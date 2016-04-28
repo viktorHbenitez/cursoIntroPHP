@@ -19,7 +19,13 @@
 	/*Accedemos al contenido del $_GET
 	Usamos el metodo htmlspecialchars() para convertir caracteres especiales a caracteres normales de texto
 	*/
-	htmlspecialchars($nombre = $_GET['nombre']);
+	/*Validacion $_GET tenga datos del usuario y no esten vacios*/
+	if ($nombre) {
+		htmlspecialchars($nombre = $_GET['nombre']);
+		# code...
+	}else{
+		echo "Se debe ingresar un dato en el campo nombre <br>";
+	}
 	htmlspecialchars($genero = $_GET['genero']);
 	htmlspecialchars($year = $_GET['year']);
 	htmlspecialchars($comentario =$_GET['comentario']);	

@@ -19,7 +19,7 @@
 		<form action="datosRecibidos.php" method="get">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
-				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre"/>
+				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre" title="Se necesita un nombre" required/> <!-- required= ingresarDatoObligatorio -->
 			</div>	<!-- .form-group type=name value= N/A texto dinamico escrito por el usuario -->
 
 			<div class="radio">
