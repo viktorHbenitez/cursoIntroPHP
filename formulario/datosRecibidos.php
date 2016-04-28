@@ -3,10 +3,11 @@
 	/*METHOD = GET ENVIA VALORES POR URL VARIABLE $_GET
 	USO: Solo para mostrar datos, N/A consulta base de datos
 	NOTA: Medidas de seguridas restrinjida para que el usuario no cambie la URL injection de codigo
+	
+	FUNCION EVITA INJECCION CODIGO
+		htmlspecialchars() = convierte codigo html a String::html a caracteres
 	*/
-
 	if(!$_GET){
-
 		//header = paginaMostrada no hay datos en el $_POST
 		header('location:http://localhost/CursoPHP/formulario/formulario.php');
 	}
@@ -15,12 +16,14 @@
 	Array ( [nombre] => viktor [genero] => masculino [year] => 1985 [comentario] => comentario viktor [terminos] => true ) */
 	/*	print_r($_GET); */
 
-	/*Accedemos al contenido del $_GET*/
-	$nombre = $_GET['nombre'];
-	$genero = $_GET['genero'];
-	$year = $_GET['year'];
-	$comentario =$_GET['comentario'];
-	$terminos = $_GET['terminos'];
+	/*Accedemos al contenido del $_GET
+	Usamos el metodo htmlspecialchars() para convertir caracteres especiales a caracteres normales de texto
+	*/
+	htmlspecialchars($nombre = $_GET['nombre']);
+	htmlspecialchars($genero = $_GET['genero']);
+	htmlspecialchars($year = $_GET['year']);
+	htmlspecialchars($comentario =$_GET['comentario']);	
+	htmlspecialchars($terminos = $_GET['terminos']);	
 	
 	/*
 	$contenido = $_GET;
