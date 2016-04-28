@@ -25,10 +25,11 @@
 				<label for="hombre">Hombre</label>
 				<input type="radio" name="genero" value="masculino" id="hombre" class="" cheked/>
 			</div>  <!-- .form-group type=radio button name=variableEnvia  value= valorEnviado -->
-			<div class="form-group">
-				<label for="mujer">Mujer</label>	<!-- label for=relacionId-->
-				<input type="radio" name="genero" id="mujer" value="femenino"/>
-			</div>	<!-- .form-group type=radio -->
+			<div class="radio">
+				<label>
+					<input type="radio" name="genero" id="mujer" value="femenino"/>Femenino
+				</label>
+			</div>	<!-- .radio-->
 			<select class="form-control"name="year" id="year">  <!-- name= variableEnviaValor -->
 				<option value="1985">1985</option>
 				<option value="2000">1990</option>
@@ -37,12 +38,18 @@
 				<option value="2010">2010</option>
 				<option value="2015">2015</option>
 			</select>  <!-- .form-control -->
+			<div class="form-group">
+				<label form="comentario"></label>
+				<textarea class="form-control" rows="3" cols="3" name="comentario" id="comentario">
+				
+				</textarea>	<!-- .form-control -->		
+			</div>	<!-- form-group -->
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" name="terminos" value="true" id="terminos"> Aceptas los terminos?
 				</label>
 			</div>	<!-- .checkbox-->
-			<input type="submit" value="Enviar" class="btn btn-primary" />
+			<input type="submit" value="Enviar" class="btn btn-primary" />	<!-- .btn btn-primary -->
 
 		</form>  <!-- endFormulario -->
 
