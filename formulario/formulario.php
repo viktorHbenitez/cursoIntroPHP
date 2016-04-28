@@ -1,3 +1,12 @@
+<?php 
+	if ($_POST) {
+		$nombre = $_POST['nombre'];
+		echo "Nombre de la persona ".$nombre." </br>"; 
+	}
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +23,13 @@
 <body>
 	<div class="container-fluid">
 		
-		<h1>Enviar datos por el metodo GET</h1>
-		<!-- method = GET :: valores recibidos por URL-->	
-		<form action="datosRecibidos.php" method="get">    <!-- action = archivoDestino.php  method= Get / Post -->
+		<h1>Recibir datos de la misma pagina donde se envian los datos</h1>
+		
+		<!-- METODO POST :: 
+			action = echo $_SERVER['PHP_SELF']; Regresa el nombre del archivo que actualmente ejecuta el script  
+			Segudirdad: usamos el metodo htmlspecialchars() = convertir caracteres especiales
+		-->
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
 				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre" title="Se necesita un nombre" required/> <!-- required= ingresarDatoObligatorio -->
