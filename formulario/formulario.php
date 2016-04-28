@@ -23,13 +23,15 @@
 <body>
 	<div class="container-fluid">
 		
-		<h1>Recibir datos de la misma pagina donde se envian los datos</h1>
-		
-		<!-- METODO POST :: 
-			action = echo $_SERVER['PHP_SELF']; Regresa el nombre del archivo que actualmente ejecuta el script  
-			Segudirdad: usamos el metodo htmlspecialchars() = convertir caracteres especiales
-		-->
-		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
+		<h1>Comprobar si un formulario ha sido enviado </h1>
+		<h2><small>$_SERVER['REQUEST_METHOD']</small></h2>
+		<h2><small>Metodo isset()</small></h2>
+		<hr>
+		<p class="lead"> 
+			Envia los datos y se verifica por que metodo se enviaron los datos GET / POST
+		</p>
+	
+		<form action="datosRecibidos.php" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
 				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre" title="Se necesita un nombre" required/> <!-- required= ingresarDatoObligatorio -->
@@ -65,7 +67,7 @@
 					<input type="checkbox" name="terminos" value="true" id="terminos"> Aceptas los terminos?
 				</label>
 			</div>	<!-- .checkbox-->
-			<input type="submit" value="Enviar" class="btn btn-primary" />	<!-- .btn btn-primary -->
+			<input type="submit" value="Enviar" class="btn btn-primary" name="enviar"/>	<!-- .btn btn-primary -->
 
 		</form>  <!-- endFormulario -->
 
