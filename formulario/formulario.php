@@ -14,9 +14,9 @@
 <body>
 	<div class="container-fluid">
 		
-		<h1>Uso de formularios en PHP</h1>
-
-		<form action="" method="">    <!-- action = archivoDestino.php  method= Get / Post -->
+		<h1>Enviar datos por el metodo Post</h1>
+		<!-- method = post:: Se crea un arreglo o variable que almacena los datos del formulario y los recibe con el atributo name-->	
+		<form action="datosRecibidos.php" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
 				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre"/>
