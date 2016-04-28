@@ -1,28 +1,29 @@
 <?php 
 
-	/*METODO POST INFORMACION SENSIBLE YA QUE SE ENVIAN ATRAS DEL NAVEGADOR Y NO POR URL*/
+	/*METHOD = GET ENVIA VALORES POR URL VARIABLE $_GET
+	USO: Solo para mostrar datos, N/A consulta base de datos
+	NOTA: Medidas de seguridas restrinjida para que el usuario no cambie la URL injection de codigo
+	*/
 
-	//Validacion si el usuario quiere ingresar la pagina datosRecibidos.php sin enviar datos formulario
-	if(!$_POST){
+	if(!$_GET){
 
 		//header = paginaMostrada no hay datos en el $_POST
 		header('location:http://localhost/CursoPHP/formulario/formulario.php');
 	}
 
-	/*Accedemos al arreglo creado cuando usamos el metodo POST
-	 $_POST = arreglo del metodo post creada
-	*/
-	print_r($_POST); /*Array ( [nombre] => viktor [genero] => masculino [year] => 1985 [comentario] => comentario viktor [terminos] => true ) */
-	
-	/*Accedemos al contenido del arreglo*/
-	$nombre = $_POST['nombre'];
-	$genero = $_POST['genero'];
-	$year = $_POST['year'];
-	$comentario =$_POST['comentario'];
-	$terminos = $_POST['terminos'];
+	/*imprimmos el contenido de la variable $_GET
+	Array ( [nombre] => viktor [genero] => masculino [year] => 1985 [comentario] => comentario viktor [terminos] => true ) */
+	/*	print_r($_GET); */
+
+	/*Accedemos al contenido del $_GET*/
+	$nombre = $_GET['nombre'];
+	$genero = $_GET['genero'];
+	$year = $_GET['year'];
+	$comentario =$_GET['comentario'];
+	$terminos = $_GET['terminos'];
 	
 	/*
-	$contenido = $_POST;
+	$contenido = $_GET;
 	print_r($contenido);
 	Accediendo a los valores desde foreach
 	foreach($contenido as $i) {

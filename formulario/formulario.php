@@ -14,17 +14,20 @@
 <body>
 	<div class="container-fluid">
 		
-		<h1>Enviar datos por el metodo Post</h1>
-		<!-- method = post:: Se crea un arreglo o variable que almacena los datos del formulario y los recibe con el atributo name-->	
-		<form action="datosRecibidos.php" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
+		<h1>Enviar datos por el metodo GET</h1>
+		<!-- method = GET :: valores recibidos por URL-->	
+		<form action="datosRecibidos.php" method="get">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
 				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre"/>
 			</div>	<!-- .form-group type=name value= N/A texto dinamico escrito por el usuario -->
-			<div class="from-group">
-				<label for="hombre">Hombre</label>
-				<input type="radio" name="genero" value="masculino" id="hombre" class="" cheked/>
-			</div>  <!-- .form-group type=radio button name=variableEnvia  value= valorEnviado -->
+
+			<div class="radio">
+				<label>
+					<input type="radio" name="genero" value="hombre"> Masculino 		
+				</label>
+			</div> <!-- .radio -->
+
 			<div class="radio">
 				<label>
 					<input type="radio" name="genero" id="mujer" value="femenino"/>Femenino
