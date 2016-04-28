@@ -1,9 +1,52 @@
 <?php 
-	if ($_POST) {
-		$nombre = $_POST['nombre'];
-		echo "Nombre de la persona ".$nombre." </br>"; 
-	}
+	/*	Validacion se enviaron los datos del formulario
+		isset($_POST['enviar']) = Si fue enviado el formulario
+	*/
+	$errores = "";
 
+	if (isset($_POST['enviar'])) {
+		/*asignamos los datos enviados a variables*/
+		$nombre = $_POST['nombre']; 
+		$correo = $_POST['correo']; 
+		$genero = $_POST['genero']; 
+		/*	1. condicional empy() ::verificamos que los campos no se envien vacios 
+			2. trim() ::eliminas los espacios de los datos recibidos	
+			3. htmlspecialchars():: convertimos los campos en caracteres de texto 
+			4. stripcslashes() :: elimina las diagonales 
+			otra opcion: filter_var(variable, FILTER_SANITIZE_STRING) :: REMUEVE SIGNOS html impide injeccion de codigo
+		*/
+		
+		if (!empty($nombre)) {
+			/*$nombre = trim($nombre);
+			echo $nombre." trim()<br>";
+			$nombre = htmlspecialchars($nombre);
+			echo $nombre." htmlspecialchars <br>";
+			$nombre = stripcslashes($nombre);
+			echo $nombre." stripcslashes <br>";*/
+			$nombre = filter_var($nombre,FILTER_SANITIZE_STRING);
+			echo "Nombre: ".$nombre."<br>";
+		}else{
+			$errores .="Se necesita llenar el campo nombre <br>" ;
+		} /*endIf*/
+
+		if(!empty($correo)){
+
+			$correo = filter_var($correo, FILTER_SANITIZE_STRING);
+
+			if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){ /*Si no tiene la estructura de un correo*/
+				$errores.= "Introduzca un correo valido <br>";
+			}else{
+				echo "Correo electronico: ".$correo;
+			} /*endIf*/
+
+		}else{
+			$errores.= " Necesita llenar el campo correo <br>";
+		}
+
+
+	} /*endIf*/
+
+	
 
  ?>
 
@@ -16,30 +59,34 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 
 	<title>Formularios en php</title>
 </head>
 <body>
 	<div class="container-fluid">
 		
-		<h1>Comprobar si un formulario ha sido enviado </h1>
-		<h2><small>$_SERVER['REQUEST_METHOD']</small></h2>
-		<h2><small>Metodo isset()</small></h2>
+		<h1>Validacion de un formulario </h1>
+		<h2><small>Eliminar injeccion de codigo y campos en blanco</small></h2>
+		
 		<hr>
 		<p class="lead"> 
 			Envia los datos y se verifica por que metodo se enviaron los datos GET / POST
 		</p>
-	
-		<form action="datosRecibidos.php" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
+		<!-- echo htmlspecialchars($_SERVER['PHP_SELF']) Regresa el nombre del archivo en ejecucion -->
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">    <!-- action = archivoDestino.php  method= Get / Post -->
 			<div class="form-group">
 				<label for="nombreUsuario">Nombre Usuario:</label>
-				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre" title="Se necesita un nombre" required/> <!-- required= ingresarDatoObligatorio -->
+				<input type="text" id="nombreUsuario"  class="form-control" placeholder="Ingrese un nombre" name="nombre" title="Se necesita un nombre" /> <!-- required= ingresarDatoObligatorio -->
 			</div>	<!-- .form-group type=name value= N/A texto dinamico escrito por el usuario -->
-
+			
+			<div class="form-group">
+				<label for="correo">Correo</label>
+				<input type="email" name="correo" id="correo" placeholder="Introduce un correo electronico" class="form-control" />
+			</div>	<!-- .form-group -->
 			<div class="radio">
 				<label>
-					<input type="radio" name="genero" value="hombre"> Masculino 		
+					<input type="radio" name="genero" value="hombre" checked> Masculino 		
 				</label>
 			</div> <!-- .radio -->
 
@@ -48,25 +95,11 @@
 					<input type="radio" name="genero" id="mujer" value="femenino"/>Femenino
 				</label>
 			</div>	<!-- .radio-->
-			<select class="form-control"name="year" id="year">  <!-- name= variableEnviaValor -->
-				<option value="1985">1985</option>
-				<option value="2000">1990</option>
-				<option value="2000">2000</option>
-				<option value="2005">2005</option>
-				<option value="2010">2010</option>
-				<option value="2015">2015</option>
-			</select>  <!-- .form-control -->
-			<div class="form-group">
-				<label form="comentario"></label>
-				<textarea class="form-control" rows="3" cols="3" name="comentario" id="comentario">
-				
-				</textarea>	<!-- .form-control -->		
-			</div>	<!-- form-group -->
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="terminos" value="true" id="terminos"> Aceptas los terminos?
-				</label>
-			</div>	<!-- .checkbox-->
+			
+			<?php if(!empty($errores)): ?>
+				<!-- Se ejecutara el codigo que se encuentre aqui -->
+				<div class="error"> <?php echo $errores; ?></div>
+			<?php endif; ?>
 			<input type="submit" value="Enviar" class="btn btn-primary" name="enviar"/>	<!-- .btn btn-primary -->
 
 		</form>  <!-- endFormulario -->
