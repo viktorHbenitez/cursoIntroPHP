@@ -41,7 +41,7 @@
 
 		}else{
 			$errores.= " Necesita llenar el campo correo <br>";
-		}
+		} 
 
 
 	} /*endIf*/
