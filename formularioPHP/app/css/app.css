@@ -27,7 +27,8 @@ form {
   padding: 20px;
   background: #fff;
   box-shadow: 0 0 5px grey;
-  border-top: 4px solid #FF851B; }
+  border-top: 4px solid #FF851B;
+  /* overflow: hidden; */ }
   form input[type="text"],
   form textarea[name="mensaje"] {
     border: 1px solid #0074D9;
@@ -39,16 +40,39 @@ form {
     margin-bottom: 20px;
     font-size: 1em;
     color: #0074D9;
-    padding: 16px; }
-    form input[type="text"]:hover,
-    form textarea[name="mensaje"]:hover {
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif; }
+    form input[type="text"]:focus,
+    form textarea[name="mensaje"]:focus {
       border: 2px solid #3f51b5;
-      padding: 15px; }
+      padding: 11px; }
   form textarea[name="mensaje"] {
     max-width: 100%;
     min-width: 100%;
     max-height: 300px;
     min-height: 150px; }
+
+.alert {
+  padding: 1em;
+  color: #fff;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-family: 14px; }
+
+.alert.error {
+  background: #FFCCBC;
+  border: 1px solid #FF4136;
+  color: #FF4136; }
+
+.alert.success {
+  background: #2ECC40; }
+
+.btn {
+  padding: 15px;
+  background: #FF5722;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em; }
 
 .derecha {
   text-align: right; }

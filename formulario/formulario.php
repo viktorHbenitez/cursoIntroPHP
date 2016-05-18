@@ -3,7 +3,6 @@
 		isset($_POST['enviar']) = Si fue enviado el formulario
 	*/
 	$errores = "";
-
 	if (isset($_POST['enviar'])) {
 		/*asignamos los datos enviados a variables*/
 		$nombre = $_POST['nombre']; 

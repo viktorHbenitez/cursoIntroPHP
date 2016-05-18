@@ -15,7 +15,7 @@
 	<div class="wrap">
 		
 		<!-- htmlspecialchars($_SERVER['PHP_SELF']):: convertimos caracteres especiales, variable global del nombre de pagina en ejecucion -->
-		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 			<div class="form-group">
 				<input type="text"  class="form-control" name="nombre" id="nombre" placeholder="Nombre: "/>
 			</div>
@@ -24,9 +24,19 @@
 			</div>
 			
 				<textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Mesaje"></textarea>
+			
+			<?php if (!empty($errores)): ?> <!-- si la variable errores no esta vacia (tiene contenido)-->
+				<div class="alert error">
+					<?php echo $errores; ?>	<!-- mostramos los errores almacenados en la variable $errores -->
+				</div>
+			<?php elseif ($enviado): ?>
+				<div class="alert success">
+					<p>Enviado Correctamente</p>
+				</div>
+			<?php endif ?>
+			
 			<div class="form-group derecha">
-				<input type="button"  name="submit" class="btn btn-warning" value="Enviar Correo"/>
-				
+				<input type="submit"  name="submit" class="btn btn-warning" value="Enviar Correo"/>
 			</div>
 			
 		</form>
