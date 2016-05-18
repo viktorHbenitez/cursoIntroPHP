@@ -17,13 +17,13 @@
 		<!-- htmlspecialchars($_SERVER['PHP_SELF']):: convertimos caracteres especiales, variable global del nombre de pagina en ejecucion -->
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 			<div class="form-group">
-				<input type="text"  class="form-control" name="nombre" id="nombre" placeholder="Nombre: "/>
+				<input type="text"  class="form-control" name="nombre" id="nombre" placeholder="Nombre:" value="<?php if(!$enviado && isset($nombre)) echo $nombre; ?>" />
 			</div>
 			<div class="form-group">
-				<input type="text" name="correo" class="form-control" id="correo" placeholder="Correo"/>
+				<input type="text" name="correo" class="form-control" id="correo" placeholder="Correo" value="<?php if(!$enviado && isset($correo)) echo $correo; ?>" />
 			</div>
 			
-				<textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Mesaje"></textarea>
+				<textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Mesaje"> <?php if(!$enviado && isset($mensaje)) echo $mensaje; ?></textarea>
 			
 			<?php if (!empty($errores)): ?> <!-- si la variable errores no esta vacia (tiene contenido)-->
 				<div class="alert error">
