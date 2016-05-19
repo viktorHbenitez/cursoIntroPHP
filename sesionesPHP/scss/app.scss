@@ -1,0 +1,29 @@
+/* archivo de fonts 
+	font-family: 'Bitter', serif;
+	font-family: 'Open Sans', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Bitter);
+/* importamos el archivo _colores.scss variables de colores */
+
+$agua:  #7FDBFF;
+$azul:  #0074D9;
+$navy:  #001F3F;
+$teal:  #39CCCC;
+$verde: #2ECC40;
+$olivo: #3D9970;
+$limon:  #01FF70;
+$gris-claro: #f2f2f2;
+$amarillo:  #FFDC00;
+$naranja:  #FF851B;
+$rojo:     #FF4136;
+$fiusa: #F012BE;
+$purpura:  #B10DC9;
+$marron:  #85144B;
+$plata: #DDDDDD;
+$gris:   #AAAAAA;
+$negro:  #111111;
+$blanco: #fff;
+body
+{
+	background: yellow;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "sessionphp",
+  "version": "1.0.0",
+  "description": "manejo de variables en varias paginas",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sessione",
+    "php"
+  ],
+  "author": "viktor benitez",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-useref": "^3.1.0"
+  }
+}

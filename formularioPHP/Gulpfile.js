@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var connect = require('gulp-connect-php');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;  /*llamada  al atributo reload*/

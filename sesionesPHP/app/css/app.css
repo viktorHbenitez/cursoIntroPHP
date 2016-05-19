@@ -1,0 +1,8 @@
+/* archivo de fonts 
+	font-family: 'Bitter', serif;
+	font-family: 'Open Sans', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Bitter);
+/* importamos el archivo _colores.scss variables de colores */
+body {
+  background: yellow; }
