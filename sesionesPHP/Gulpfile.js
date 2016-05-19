@@ -14,15 +14,15 @@ var uglifyCss = require('gulp-uglifycss');
 gulp.task('browserSync', ['sass'], function() {
 
     browserSync.init({
-        proxy: "localhost/CursoPHP/sesionesPHP/app",
+        proxy: "localhost/CursoPHP/sesionesPHP/app/texto.php",
         notify: false
     });
 
 });
 gulp.task('watch',['browserSync','sass'], function(){
     gulp.watch("scss/*.scss", ['sass']);
-    gulp.watch("app/**/*.php").on('change', browserSync.reload);
     gulp.watch("app/*.php").on('change', browserSync.reload);
+    gulp.watch("app/**/*.php").on('change', browserSync.reload);
     gulp.watch("app/css/*.css").on('change', browserSync.reload);
 }) 
 
