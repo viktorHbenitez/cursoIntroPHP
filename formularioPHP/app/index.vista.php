@@ -17,7 +17,7 @@
 		<!-- htmlspecialchars($_SERVER['PHP_SELF']):: convertimos caracteres especiales, variable global del nombre de pagina en ejecucion -->
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 			<div class="form-group">
-				<input type="text"  class="form-control" name="nombre" id="nombre" placeholder="Nombre persona:" value="<?php if(!$enviado && isset($nombre)) echo $nombre; ?>" />
+				<input type="text"  class="form-control" name="nombre" id="nombre" placeholder="Nombre viktor:" value="<?php if(!$enviado && isset($nombre)) echo $nombre; ?>" />
 			</div>
 			<div class="form-group">
 				<input type="text" name="correo" class="form-control" id="correo" placeholder="Correo" value="<?php if(!$enviado && isset($correo)) echo $correo; ?>" />
@@ -36,7 +36,7 @@
 			<?php endif ?>
 			
 			<div class="form-group derecha">
-				<input type="submit"  name="submit" class="btn btn-warning" value="Enviar Correo"/>
+				<input type="submit"  name="submit" class="btn btn-warning" value=" Correo"/>
 			</div>
 			
 		</form>

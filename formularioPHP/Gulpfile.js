@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync')
 var reload = browserSync.reload;  /*llamada  al atributo reload*/
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -11,7 +11,8 @@ gulp.task('sass', function() {
     .pipe(sass({
       includePaths: ['scss'] //compila  de sass a css
     }))
-    .pipe(gulp.dest('app/css'));  //lo guarda en el destino app/css
+    .pipe(gulp.dest('app/css'))  //lo guarda en el destino app/css
+    .pipe(reload({stream:true}));
 });
 
 // browser-sync para los archivos que estará revisando por cambios
@@ -21,12 +22,13 @@ gulp.task('serve',['sass'],function(){
     "app/css/*.css",
     "app/js/*.js",
     "app/*.html",
-    "app/*.php"
+    "./*.php",
+    "app/**/*.php"
   ];
   //configurar browsersync
    browserSync.init(files, {
       //browser sync para un servidor php necesita proxy, por eso lo usamos aqui
-     proxy: "localhost/CursoPHP/formularioPHP",
+     proxy: "localhost/CursoPHP/formularioPHP/app",
      notify: false
     });
 });
